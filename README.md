@@ -1,0 +1,1 @@
+esse repositorio é destinado apenas para armazer o codigo usado nas aulas praticas do gostack, visto que frequentemente estou formatando o meu computador.
