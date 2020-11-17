@@ -5,11 +5,6 @@ import AppError from '@shared/errors/AppError';
 import IUsersRepository from '../repositories/IUsersRepository';
 import IUserTokensRepository from '../repositories/IUserTokensRepository';
 import IHashProvider from '../providers/HashProvider/models/IHashProvider';
-import UserToken from '../infra/typeorm/entities/UserToken';
-// import IMailProvider from '@shared/container/providers/MailProvider/models/IMailProvider';
-
-// import User from '../infra/typeorm/entities/User';
-
 
 interface IRequest {
     token: string;
@@ -21,16 +16,13 @@ class ResetPasswordService {
     constructor(
         @inject('UsersRepository')
         private usersRepository: IUsersRepository,
-
-
+    
         @inject('UserTokensRepository')
         private userTokensRepository: IUserTokensRepository,
-
+    
         @inject('HashProvider')
         private hashProvider: IHashProvider,
-        
-        
-    ) { }
+      ) {}
 
     public async execute({ token, password }: IRequest): Promise<void> {
      const userToken = await this.userTokensRepository.findByToken(token);
