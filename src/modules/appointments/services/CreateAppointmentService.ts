@@ -47,6 +47,7 @@ class CreateAppointmentService {
         // verificando se a data tá disponivel
         const findAppointmentInSameDate = await this.appointmentsRepository.findByDate(
             appointmentDate,
+            provider_id,
         );
 
         // se findAppointmentInSameDate for true, o programa vai entrar no if abaixo
